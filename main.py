@@ -297,7 +297,7 @@ async def underwrite(application_path: str | Path) -> CreditMemo:
     print(f"  Credit Underwriting Engine")
     print(f"  Application: {app_id}")
     print(f"  Applicant:   {app.applicant.name}")
-    print(f"  Loan:        ₹{app.product.amount_requested:,.0f} / {app.product.tenure_months}m")
+    print(f"  Loan:        INR {app.product.amount_requested:,.0f} / {app.product.tenure_months}m")
     print(f"{'='*60}\n")
 
     audit: list = []

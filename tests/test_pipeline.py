@@ -41,24 +41,17 @@ def test_pipeline_runs_end_to_end():
     # Risk score in valid range
     assert 0 <= memo.risk_score <= 1000, f"Risk score out of range: {memo.risk_score}"
 
-    # Audit trail must have exactly 5 entries (one per agent stage)
-    assert len(memo.audit_trail) == 5, (
-        f"Expected 5 audit entries, got {len(memo.audit_trail)}. "
+    # Audit trail: 7 entries — intake, bureau, bank, gst, risk, compliance, decision
+    assert len(memo.audit_trail) == 7, (
+        f"Expected 7 audit entries, got {len(memo.audit_trail)}. "
         f"Agents: {[e.agent for e in memo.audit_trail]}"
     )
 
-    expected_agents = {
-        "intake-agent",
-        "bureau-enrichment-agent",
-        "bank-enrichment-agent",
-        "gst-enrichment-agent",
-        "risk-agent",
-    }
     actual_agents = {e.agent for e in memo.audit_trail}
-    # All expected agents should appear (compliance + decision are also present)
-    # We just check that intake, risk are there
-    assert "intake-agent" in actual_agents
-    assert "risk-agent" in actual_agents
+    # Verify every stage is represented
+    for expected in ("intake-agent", "bureau-enrichment-agent", "bank-enrichment-agent",
+                     "gst-enrichment-agent", "risk-agent", "compliance-agent", "decision-agent"):
+        assert expected in actual_agents, f"Missing audit entry for {expected}"
 
     # Decision rationale must be non-empty
     assert memo.decision_rationale and len(memo.decision_rationale) > 50, (
