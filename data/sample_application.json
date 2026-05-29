@@ -1,0 +1,44 @@
+{
+  "application_id": "APP-2026-00142",
+  "submitted_at": "2026-05-29T09:15:00Z",
+  "product": {
+    "type": "personal_loan",
+    "amount_requested": 1500000,
+    "currency": "INR",
+    "tenure_months": 36,
+    "purpose": "home_renovation"
+  },
+  "applicant": {
+    "name": "Rohan Mehta",
+    "date_of_birth": "1989-03-14",
+    "pan": "ABCPM1234R",
+    "mobile": "+919830012345",
+    "email": "rohan.mehta@example.com",
+    "address": {
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "pin": "700019",
+      "years_at_address": 4
+    }
+  },
+  "employment": {
+    "type": "salaried",
+    "employer": "Tata Consultancy Services",
+    "designation": "Senior Engineer",
+    "years_with_employer": 5,
+    "monthly_gross_salary": 145000,
+    "monthly_net_salary": 112000
+  },
+  "financials": {
+    "existing_emis": 18000,
+    "declared_assets": 2200000,
+    "declared_liabilities": 450000
+  },
+  "documents_provided": [
+    "salary_slip_3m",
+    "bank_statement_6m",
+    "pan_card",
+    "aadhaar",
+    "form_16"
+  ]
+}
