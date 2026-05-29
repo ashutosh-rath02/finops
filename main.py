@@ -13,6 +13,13 @@ from __future__ import annotations
 import asyncio
 import json
 import os
+
+# Load .env if present (no-op if file missing or dotenv not installed)
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 import sys
 import time
 from datetime import datetime, timezone
